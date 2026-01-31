@@ -10,7 +10,7 @@ class ClassResolver(ServiceInterface):
         self.modules = []
 
     def __load_module__(self, package):
-        for finder, module_name, is_pkg in pkgutil.walk_packages(
+        for _, module_name, _ in pkgutil.walk_packages(
             package.__path__, package.__name__ + "."
         ):
             module = importlib.import_module(module_name)
